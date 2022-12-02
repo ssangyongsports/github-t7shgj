@@ -1,3 +1,4 @@
+
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -11,7 +12,7 @@ import Button from './Button';
 import Container from './Container';
 import Drawer from './Drawer';
 import { HamburgerIcon } from './HamburgerIcon';
-import Logo from './Logo.png';
+import Logo from './Logo';
 
 const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
 
@@ -69,13 +70,8 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-         <Image
-      loader={myLoader}
-      src="https://img.ssangyongsports.eu.org/logo2.png"
-      alt="Picture of the author"
-      width={500}
-      height={500}
-    />
+            <Logo />
+          </LogoWrapper>
         </NextLink>
         <NavItemList>
           {items.map((singleItem) => (
@@ -121,7 +117,6 @@ const CustomButton = styled(Button)`
 const NavItemList = styled.div`
   display: flex;
   list-style: none;
-
   ${media('<desktop')} {
     display: none;
   }
@@ -137,7 +132,6 @@ const LogoWrapper = styled.a`
   display: flex;
   margin-right: auto;
   text-decoration: none;
-
   color: rgb(var(--logoColor));
 `;
 
@@ -147,12 +141,10 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
   font-size: 1.3rem;
   text-transform: uppercase;
   line-height: 2;
-
   &:hover {
     background-color: ${(p) => (p.outlined ? 'rgb(var(--primary), 0.8)' : 'transparent')};
     transition: background-color 0.2s;
   }
-
   a {
     display: flex;
     color: ${(p) => (p.outlined ? 'rgb(var(--textSecondary))' : 'rgb(var(--text), 0.75)')};
@@ -161,7 +153,6 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
     padding: 0.75rem 1.5rem;
     font-weight: 700;
   }
-
   &:not(:last-child) {
     margin-right: 2rem;
   }
@@ -175,12 +166,10 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
   width: 100%;
   height: 8rem;
   z-index: var(--z-navbar);
-
   background-color: rgb(var(--navbarBackground));
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   visibility: ${(p) => (p.hidden ? 'hidden' : 'visible')};
   transform: ${(p) => (p.hidden ? `translateY(-8rem) translateZ(0) scale(1)` : 'translateY(0) translateZ(0) scale(1)')};
-
   transition-property: transform, visibility, height, box-shadow, background-color;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
