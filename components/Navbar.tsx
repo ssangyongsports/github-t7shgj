@@ -69,7 +69,6 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-            <Logo />
          <img class="fit-picture"
      src="https://img.ssangyongsports.eu.org/logo2.png"
      alt="Grapefruit slice atop a pile of other slices"> </LogoWrapper>
