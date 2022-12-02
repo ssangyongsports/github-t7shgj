@@ -70,7 +70,9 @@ export default function Navbar({ items }: NavbarProps) {
         <NextLink href="/" passHref>
           <LogoWrapper>
             <Logo />
-          </LogoWrapper>
+         <img class="fit-picture"
+     src="https://img.ssangyongsports.eu.org/logo2.png"
+     alt="Grapefruit slice atop a pile of other slices"> </LogoWrapper>
         </NextLink>
         <NavItemList>
           {items.map((singleItem) => (
