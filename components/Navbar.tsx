@@ -69,9 +69,13 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-         <img class="fit-picture"
-     src="https://img.ssangyongsports.eu.org/logo2.png"
-     alt="Grapefruit slice atop a pile of other slices"> </LogoWrapper>
+         <Image
+      loader={myLoader}
+      src="https://img.ssangyongsports.eu.org/logo2.png"
+      alt="Picture of the author"
+      width={500}
+      height={500}
+    />
         </NextLink>
         <NavItemList>
           {items.map((singleItem) => (
